@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /project/  # Sesuaikan dengan base URL aplikasi Anda
+    
+    # Jika file atau direktori yang diminta ada, biarkan Apache mengaksesnya
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    
+    # Jika tidak ada, alihkan ke index.php
+    RewriteRule ^(.*)$ index.php/$1 [L]
+</IfModule>
